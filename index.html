@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini-Game Template </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #gameArea {
+      width: 400px;
+      height: 300px;
+      border: 2px solid #333;
+      margin: 2rem auto;
+      position: relative;
+      overflow: hidden;
+    }
+    #player {
+      width: 40px;
+      height: 40px;
+      background: orange;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #info {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mini-Game Project</h1>
+  <p>Choose one: Keyboard Mover, Mouse-Avoid, or Reaction Click Game.</p>
+
+  <div id="gameArea">
+    <div id="player"></div>
+  </div>
+
+  <p id="info">Add instructions for your game here.</p>
+
+  <script src="player.js">
+    // TODO: Choose your game type and implement it.
+    // Ideas:
+    //  A) Keyboard Player Mover
+    //     - Use keydown events to change player position.
+    //  B) Mouse-Avoid Game
+    //     - Track mouse and move player/enemy.
+    //  C) Click Reaction Game
+    //     - Spawn targets; user clicks quickly.
+
+    // Requirements:
+    //  - At least 2 event listeners (keyboard/mouse/click)
+    //  - Continuous DOM updates
+    //  - Visible interaction on screen
+  </script>
+</body>
+</html>
