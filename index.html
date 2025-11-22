@@ -8,6 +8,9 @@
       font-family: Arial, sans-serif;
       text-align: center;
     }
+    h1, h3, p {
+      margin: 0;
+    }
     #gameArea {
       width: 400px;
       height: 300px;
@@ -15,6 +18,9 @@
       margin: 2rem auto;
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     #player {
       width: 40px;
@@ -24,36 +30,85 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    #sword {
+      width: 10px;
+      height: 50px;
+      background-color: gray;
+      position: absolute;
+      top: -30px;
+      left: 15px;
+      z-index: 1;
+      transform-origin: bottom center;
     }
     #info {
       margin-top: 1rem;
+    }
+    #enemy {
+      width: 40px;
+      height: 40px;
+      background: green;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+    #endScreen{
+      display: none;
+      z-index: 10;
+      background-color: rgba(128, 128, 128, 0.5);
+      padding: 15px;
+      margin: 0;
+      border-radius: 15px;
+      gap: 10px;
+      flex-direction: column;
+    }
+    #endScreen button{
+      padding: 15px;
+      border-radius: 50px;
+      border: none;
+      font-size: 1rem;
+      background-color: gray;
+    }
+    #endScreen button:hover{
+      cursor: pointer;
+      background-color: rgb(159, 159, 159);
+    }
+    #score {
+      z-index: 5;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      margin: 0;
     }
   </style>
 </head>
 <body>
   <h1>Mini-Game Project</h1>
-  <p>Choose one: Keyboard Mover, Mouse-Avoid, or Reaction Click Game.</p>
 
   <div id="gameArea">
-    <div id="player"></div>
+    <h3 id="score">Score: </h3>
+    <div id="player">
+      <div id="sword"></div>
+    </div>
+    <div id="enemy"></div>
+    <div id="endScreen">
+      <h1>You died</h1>
+      <h3>Score: </h3>
+      <h3>High Score: </h3>
+      <button onclick="startGame()">Play again</button>
+    </div>
   </div>
 
-  <p id="info">Add instructions for your game here.</p>
+  <p>Use your sword to kill as many enemies as possible</p>
+  <p>Arrow Keys / W, A, S, D - Movement</p>
+  <p>Mouse - Aim Sword</p>
 
-  <script src="player.js">
-    // TODO: Choose your game type and implement it.
-    // Ideas:
-    //  A) Keyboard Player Mover
-    //     - Use keydown events to change player position.
-    //  B) Mouse-Avoid Game
-    //     - Track mouse and move player/enemy.
-    //  C) Click Reaction Game
-    //     - Spawn targets; user clicks quickly.
-
-    // Requirements:
-    //  - At least 2 event listeners (keyboard/mouse/click)
-    //  - Continuous DOM updates
-    //  - Visible interaction on screen
-  </script>
+  <script src="player.js"></script>
 </body>
 </html>
