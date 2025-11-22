@@ -251,13 +251,13 @@ function gameLoop(currentTime) {
 function startGame() {
     playingGame = true
     
-    // enemy reset
-    newEnemy()
-    
     // player reset
     x = gameArea.clientWidth / 2
     y = gameArea.clientHeight / 2
     updatePos(player, x, y)
+    
+    // enemy reset
+    newEnemy()
 
     score = 0
     
